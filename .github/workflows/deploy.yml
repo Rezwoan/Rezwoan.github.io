@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages (Next.js Export)
+name: Deploy to GitHub Pages
 
 on:
     push:
-        branches: ["main"]
+        branches: [main]
     workflow_dispatch:
 
 permissions:
@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
     group: "pages"
-    cancel-in-progress: false
+    cancel-in-progress: true
 
 jobs:
     build:
@@ -21,37 +21,34 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
+
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: "20"
+                  node-version: 20
+                  cache: "pnpm"
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  # Match your lockfile/CLI (pnpm 10 is fine)
-                  version: 10
-
-            - name: Install deps
+            - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Build & Export
-              run: pnpm run export
+            - name: Build static site (outputs to ./out)
+              run: pnpm run build
 
-            - name: Add .nojekyll
-              run: touch out/.nojekyll
-
-            - name: Upload artifact
+            - name: Upload Pages artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: out
+                  path: ./out
 
     deploy:
-        needs: build
-        runs-on: ubuntu-latest
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        needs: build
         steps:
             - name: Deploy to GitHub Pages
               id: deployment
