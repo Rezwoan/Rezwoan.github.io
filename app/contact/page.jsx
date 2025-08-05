@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Send, Github } from "lucide-react";
 import { CustomCursor } from "@/components/custom-cursor";
 
-export default function ContactPage() {
+function ContactPageContent() {
     const qs = useSearchParams();
     const isSubmittedFromRedirect = useMemo(() => qs.get("sent") === "1", [qs]);
 
@@ -22,14 +22,12 @@ export default function ContactPage() {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
-
     const formRef = useRef(null);
 
-    // No onSubmit handler. We trigger a native submit ourselves.
     const handleClickSubmit = () => {
         try {
             setIsSubmitting(true);
-            // Use a microtask to ensure the DOM updates before submit
+            // ensure the DOM updates before submitting
             Promise.resolve().then(() => formRef.current?.submit());
         } catch {
             setIsSubmitting(false);
@@ -161,7 +159,7 @@ export default function ContactPage() {
                         </div>
                     </motion.div>
 
-                    {/* Contact Form (pure native submit to /api/formbold) */}
+                    {/* Contact Form */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -317,7 +315,7 @@ export default function ContactPage() {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="text-center">
-                            <div className="text-4xl mb-4">🚀</div>
+                            <div className="text-4xl mb-4"></div>
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 Fast Response
                             </h3>
@@ -326,7 +324,7 @@ export default function ContactPage() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="text-4xl mb-4">💡</div>
+                            <div className="text-4xl mb-4"></div>
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 Creative Solutions
                             </h3>
@@ -335,7 +333,7 @@ export default function ContactPage() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="text-4xl mb-4">🤝</div>
+                            <div className="text-4xl mb-4"></div>
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 Collaboration
                             </h3>
@@ -347,5 +345,17 @@ export default function ContactPage() {
                 </motion.div>
             </div>
         </div>
+    );
+}
+
+/**
+ * The default export wraps the content in a Suspense boundary.
+ * Next.js requires this when you call useSearchParams on a page that is statically exported.
+ */
+export default function ContactPage() {
+    return (
+        <Suspense fallback={null}>
+            <ContactPageContent />
+        </Suspense>
     );
 }
