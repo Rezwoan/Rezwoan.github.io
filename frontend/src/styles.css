@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+/* =========================
+   THEME TOKENS (Tailwind v4)
+   ========================= */
+@theme {
+    /* Light — colorful */
+    --color-bg: oklch(97% 0.03 235);
+    --color-surface: oklch(99% 0.015 235);
+    --color-elevated: oklch(98% 0.02 235);
+    --color-fg: oklch(22% 0.035 255);
+    --color-muted: oklch(48% 0.02 250);
+    --color-border: oklch(86% 0.02 250);
+
+    /* Accents */
+    --color-primary: oklch(64% 0.22 260); /* blue */
+    --color-primary-600: oklch(57% 0.22 260);
+    --color-secondary: oklch(62% 0.19 320); /* magenta */
+    --color-accent: oklch(72% 0.18 150); /* green */
+    --color-warn: oklch(70% 0.2 70); /* amber */
+
+    --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+        sans-serif;
+}
+
+/* Dark — Google-like deep gray (not pure black) */
+.dark {
+    --color-bg: oklch(22% 0.02 260);
+    --color-surface: oklch(24% 0.02 260);
+    --color-elevated: oklch(28% 0.02 260);
+    --color-fg: oklch(95% 0.02 260);
+    --color-muted: oklch(75% 0.02 260);
+    --color-border: oklch(36% 0.02 260);
+
+    --color-primary: oklch(72% 0.22 260);
+    --color-primary-600: oklch(66% 0.22 260);
+    --color-secondary: oklch(70% 0.19 320);
+    --color-accent: oklch(78% 0.18 150);
+    --color-warn: oklch(76% 0.2 70);
+}
+
+/* =========
+   GLOBALS
+   ========= */
+html {
+    font-family: var(--font-sans);
+}
+html,
+body,
+#root {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100%;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* =========================
+   PLAIN CSS UTILITIES
+   ========================= */
+/* Section container */
+.section-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 72rem; /* ~max-w-6xl */
+    padding-left: 1rem;
+    padding-right: 1rem; /* px-4 */
+    padding-top: 4rem;
+    padding-bottom: 4rem; /* py-16 */
+}
+@media (min-width: 640px) {
+    .section-wrap {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    } /* sm:px-6 sm:py-24 */
+}
+
+/* Glass cards */
+.glass {
+    background-color: color-mix(
+        in oklab,
+        var(--color-surface) 70%,
+        transparent
+    );
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in oklab, var(--color-border) 60%, transparent);
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--color-fg) 12%, transparent);
+}
+.glass-strong {
+    background-color: color-mix(
+        in oklab,
+        var(--color-elevated) 85%,
+        transparent
+    );
+    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in oklab, var(--color-border) 70%, transparent);
+    border-radius: 1.25rem; /* rounded-3xl */
+    box-shadow: 0 16px 40px -12px color-mix(in oklab, var(--color-fg) 16%, transparent);
+}
+
+/* Elevated surface */
+.elevated {
+    background-color: color-mix(
+        in oklab,
+        var(--color-elevated) 90%,
+        transparent
+    );
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: 0 16px 40px -12px color-mix(in oklab, var(--color-fg) 12%, transparent);
+}
+
+/* Chips */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem; /* py-1.5 px-3 */
+    font-size: 0.875rem; /* text-sm */
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--color-border) 60%, transparent);
+    background-color: color-mix(
+        in oklab,
+        var(--color-surface) 70%,
+        transparent
+    );
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* gap-2 */
+    padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+    font-size: 0.875rem;
+    font-weight: 600; /* text-sm font-semibold */
+    border-radius: 9999px;
+    transition: background-color 0.15s ease, color 0.15s ease,
+        box-shadow 0.15s ease, transform 0.15s ease;
+}
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--color-primary-600);
+}
+.btn-outline {
+    border: 1px solid var(--color-border);
+    color: inherit;
+    background: transparent;
+}
+.btn-outline:hover {
+    background: color-mix(in oklab, var(--color-fg) 6%, transparent);
+}
+
+/* Heading gradient text */
+.text-gradient {
+    background: linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Decorative backgrounds */
+.soft-gradient {
+    border-radius: 1.5rem; /* rounded-3xl */
+    background-image: radial-gradient(
+            60% 60% at 0% 0%,
+            color-mix(in oklab, var(--color-primary) 12%, transparent) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            50% 50% at 100% 0%,
+            color-mix(in oklab, var(--color-secondary) 12%, transparent) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            50% 60% at 100% 100%,
+            color-mix(in oklab, var(--color-accent) 12%, transparent) 0%,
+            transparent 60%
+        );
+}
+
+/* Subtle grid background */
+.grid-bg {
+    background-image: linear-gradient(
+            color-mix(in oklab, var(--color-border) 30%, transparent) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            color-mix(in oklab, var(--color-border) 30%, transparent) 1px,
+            transparent 1px
+        );
+    background-size: 22px 22px, 22px 22px;
+    background-position: center;
+}
+
+/* Tilt hover */
+.tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tilt:hover {
+    transform: perspective(800px) rotateX(3deg) rotateY(-3deg) translateY(-4px);
+    box-shadow: 0 18px 40px -10px color-mix(in oklab, var(--color-primary) 30%, black);
+}
+
+/* Focus ring */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
