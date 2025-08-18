@@ -1,10 +1,9 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import tailwind from "@tailwindcss/vite"
 
-// ✅ No /repo-name base needed since you're using a custom domain
 export default defineConfig({
-  plugins: [react()],
-  build: {
-    outDir: "dist",
-  },
-});
+  plugins: [react(), tailwind()],
+  build: { outDir: "dist", emptyOutDir: true },
+  base: "/"
+})
