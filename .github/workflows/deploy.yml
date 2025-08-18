@@ -33,16 +33,14 @@ jobs:
             - name: Build (Vite)
               run: npm run build
 
-            # Ensure static extras end up in the artifact
-            # Move CNAME/404.html (kept at repo root) into dist/
             - name: Add CNAME, 404.html and .nojekyll
               run: |
                   mkdir -p dist
-                  # Prevent any Jekyll processing
+                  # Prevent Jekyll from touching your files
                   touch dist/.nojekyll
-                  # Include custom domain and SPA fallback
-                  if [ -f CNAME ]; then cp CNAME dist/; fi
-                  if [ -f 404.html ]; then cp 404.html dist/; fi
+                  # Include custom domain + SPA fallback if you keep them at repo root
+                  [ -f CNAME ] && cp CNAME dist/
+                  [ -f 404.html ] && cp 404.html dist/
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
