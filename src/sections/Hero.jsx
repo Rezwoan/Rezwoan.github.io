@@ -40,8 +40,10 @@ export default function Hero() {
                         className="mt-4 text-5xl font-extrabold tracking-tight"
                     >
                         Hi, I’m{" "}
-                        <span className="text-gradient">&nbsp;Rezwoan</span> a
-                        CSE student & web developer.
+                        <span className="text-gradient">
+                            &nbsp;Rezwoan&nbsp;
+                        </span>{" "}
+                        - a CSE student & web developer.
                     </motion.h1>
 
                     <motion.p
@@ -69,6 +71,39 @@ export default function Hero() {
                         </a>
                         <a href="/CV.pdf" className="btn btn-outline">
                             Download CV
+                        </a>
+                    </motion.div>
+
+                    {/* Socials row */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.28, duration: 0.5 }}
+                        className="mt-4 flex flex-wrap items-center gap-4 text-sm"
+                    >
+                        <a
+                            href="https://github.com/Rezwoan"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-fg/80 hover:text-primary"
+                        >
+                            GitHub
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/rezwoan"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-fg/80 hover:text-primary"
+                        >
+                            LinkedIn
+                        </a>
+                        <a
+                            href="https://www.fiverr.com/rezwoanfaisal"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-fg/80 hover:text-primary"
+                        >
+                            Fiverr
                         </a>
                     </motion.div>
                 </div>

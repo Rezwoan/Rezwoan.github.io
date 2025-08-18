@@ -65,6 +65,56 @@ export default function Contact() {
                                 className="mt-1 w-full rounded-xl border border-border bg-surface px-3 py-2"
                             />
                         </div>
+
+                        {/* Social shortcuts */}
+                        <div className="sm:col-span-2 text-sm text-fg/60">
+                            Reach me via{" "}
+                            <a
+                                href="https://github.com/Rezwoan"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-primary"
+                            >
+                                GitHub
+                            </a>
+                            {" • "}
+                            <a
+                                href="https://www.linkedin.com/in/rezwoan"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-primary"
+                            >
+                                LinkedIn
+                            </a>
+                            {" • "}
+                            <a
+                                href="https://www.fiverr.com/rezwoanfaisal"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-primary"
+                            >
+                                Fiverr
+                            </a>
+                            {" • "}
+                            <a
+                                href="https://www.facebook.com/rezwoan.din.muhammad"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-primary"
+                            >
+                                Facebook
+                            </a>
+                            {" • "}
+                            <a
+                                href="https://www.instagram.com/rezwoan.din.muhammad/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-primary"
+                            >
+                                Instagram
+                            </a>
+                        </div>
+
                         <div className="sm:col-span-2 flex items-center justify-between">
                             <div className="text-sm text-fg/60">
                                 Or email:{" "}
