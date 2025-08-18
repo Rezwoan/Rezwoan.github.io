@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <section className="section-wrap">
             <div className="grid items-center gap-10 sm:grid-cols-2">
-                {/* Left: text with higher-contrast liquid badge */}
+                {/* Left */}
                 <div className="soft-gradient p-6 rounded-3xl glass-strong">
                     <motion.div
                         initial={{ opacity: 0, y: 8 }}
@@ -20,11 +20,8 @@ export default function Hero() {
                             displacementScale={30}
                             elasticity={0.25}
                             overLight={false}
-                            /* darker bluish glass for contrast */
                             bg="color-mix(in oklab, var(--color-primary) 22%, var(--color-surface) 60%)"
-                            /* slightly subtler highlight so text stays readable */
                             highlightColor="rgba(255,255,255,0.18)"
-                            /* stronger border for definition */
                             style={{
                                 border: "1px solid color-mix(in oklab, var(--color-primary) 35%, var(--color-border) 55%)",
                             }}
@@ -42,8 +39,9 @@ export default function Hero() {
                         transition={{ delay: 0.05, duration: 0.6 }}
                         className="mt-4 text-5xl font-extrabold tracking-tight"
                     >
-                        Hi, I’m <span className="text-gradient">Your Name</span>{" "}
-                        — a CSE student & web developer.
+                        Hi, I’m{" "}
+                        <span className="text-gradient">&nbsp;Rezwoan</span> a
+                        CSE student & web developer.
                     </motion.h1>
 
                     <motion.p
@@ -52,9 +50,9 @@ export default function Hero() {
                         transition={{ delay: 0.12, duration: 0.6 }}
                         className="mt-4 text-fg/80 max-w-prose"
                     >
-                        I build fast, accessible, and visually pleasing web apps
-                        with modern stacks. I love solving real problems with
-                        clean code and thoughtful UX.
+                        I build clean, user-focused web apps with React,
+                        Tailwind, and Python/JS backends. I enjoy turning ideas
+                        into fast, reliable products.
                     </motion.p>
 
                     <motion.div
@@ -69,13 +67,13 @@ export default function Hero() {
                         <a href="#contact" className="btn btn-outline">
                             Contact Me
                         </a>
-                        <a href="/resume.pdf" className="btn btn-outline">
+                        <a href="/CV.pdf" className="btn btn-outline">
                             Download CV
                         </a>
                     </motion.div>
                 </div>
 
-                {/* Right: image */}
+                {/* Right */}
                 <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -84,7 +82,7 @@ export default function Hero() {
                 >
                     <img
                         src="/profile.jpg"
-                        alt="Your portrait"
+                        alt="Din Muhammad Rezwoan"
                         className="h-full w-full object-cover"
                     />
                 </motion.div>

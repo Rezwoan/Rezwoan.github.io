@@ -9,17 +9,19 @@ export default function About() {
                 id="about"
                 eyebrow="About"
                 title="Who I am"
-                description="CSE student focusing on modern web development, algorithms, and scalable systems."
+                description="CSE student focused on modern frontend & backend, building user-focused applications."
             />
+
             <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
                 <Reveal>
                     <div className="glass p-6 transition-transform hover:-translate-y-1">
                         <h3 className="text-lg font-semibold">A short bio</h3>
                         <p className="mt-2 text-fg/75">
-                            I’m a Computer Science & Engineering student
-                            passionate about frontend and full-stack
-                            development. I enjoy TypeScript, React, Tailwind,
-                            Node, and exploring cloud & DevOps basics.
+                            I’m Din Muhammad Rezwoan, a Bangladesh-based
+                            developer. I love crafting responsive, accessible
+                            web apps with React & Tailwind on the frontend and
+                            Python/JS backends. I care about clean code,
+                            performance and thoughtful UX.
                         </p>
                     </div>
                 </Reveal>
@@ -30,14 +32,14 @@ export default function About() {
                             What I’m looking for
                         </h3>
                         <ul className="mt-2 list-disc pl-4 text-fg/75">
+                            <li>Internships, junior roles, or freelance</li>
                             <li>
-                                Internships or junior roles (Frontend /
-                                Full-stack)
+                                Opportunities to ship impactful features with a
+                                team
                             </li>
                             <li>
-                                Opportunities to solve real problems with users
+                                Mentorship and code-quality focused environments
                             </li>
-                            <li>Teams that value code quality & mentorship</li>
                         </ul>
                     </div>
                 </Reveal>

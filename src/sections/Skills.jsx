@@ -3,10 +3,29 @@ import SectionHeader from "../components/SectionHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 
 const skills = {
-    Languages: ["TypeScript", "JavaScript", "Python", "C/C++"],
-    Frontend: ["React", "Vite", "Tailwind v4", "React Query", "Framer Motion"],
-    Backend: ["Node.js", "Express", "REST APIs", "JWT/Auth"],
-    "DB & Tools": ["PostgreSQL", "MongoDB", "Git", "Docker (basics)"],
+    Frontend: [
+        "React.js",
+        "Tailwind CSS",
+        "HTML5",
+        "CSS3",
+        "JavaScript (ES6+)",
+    ],
+    Backend: ["Flask", "Django", "Node.js", "Express.js"],
+    "Databases & DevOps": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "SQLite",
+        "Redis",
+        "Linux Systems",
+    ],
+    Tools: ["Git", "GitHub", "Trello", "Figma"],
+    "Soft Skills": [
+        "Problem Solving",
+        "Team Collaboration",
+        "Self-management",
+        "Attention to detail",
+    ],
 };
 
 export default function Skills() {

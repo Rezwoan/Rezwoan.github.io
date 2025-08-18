@@ -25,8 +25,9 @@ export default function Navbar() {
                     href="#"
                     className="font-extrabold tracking-tight text-primary"
                 >
-                    Your Name
+                    Din&nbsp;Muhammad&nbsp;Rezwoan
                 </a>
+
                 <div className="hidden md:flex items-center gap-6">
                     {links.map(([label, href]) => (
                         <a
@@ -41,6 +42,7 @@ export default function Navbar() {
                         Hire Me
                     </a>
                 </div>
+
                 <button
                     className="md:hidden rounded-md border border-border px-3 py-2"
                     onClick={() => setOpen((v) => !v)}
